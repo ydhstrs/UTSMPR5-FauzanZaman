@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 
-import {View, Text, TouchableOpacity, Button, Image, ScrollView, TextInput, StyleSheet} from 'react-native'
+import {ActivityIndicator, FlatList, View, Text, TouchableOpacity, Button, Image, ScrollView, TextInput, StyleSheet} from 'react-native'
 
 class About extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = {
+          data: [],
+      isLoading: true
+          };
     }
+    async getMovies() {
+        try {
+          const response = await fetch('https://reactnative.dev/movies.json');
+          const json = await response.json();
+          this.setState({ data: json.movies });
+        } catch (error) {
+          console.log(error);
+        } finally {
+          this.setState({ isLoading: false });
+        }
+      }
 
+  componentDidMount() {
+    this.getMovies();
+  }
     render() {
+      const { data, isLoading } = this.state;
         return (
     <ScrollView>
-      
-      <View style={{
-        backgroundColor : '#30475E'
+        <View style={{
+        backgroundColor : '#0B4619'
       }}>
        <Text
       style={{
@@ -22,7 +39,7 @@ class About extends Component {
         textAlign   : 'center',
         letterSpacing: 5,
         fontSize : 38,
-        color : '#F05454'
+        color : '#FFCC1D'
       }}>UTS</Text>
       <Text
       style={{
@@ -31,34 +48,33 @@ class About extends Component {
         textAlign   : 'center',
         letterSpacing: 5,
         fontSize  : 48,
-        color : '#F5F5F5'
+        color : '#FFCC1D'
       }}>MPR Lab</Text>
       </View>
 
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
-            <Button onPress={()=> this.props.navigation.navigate('Home')} title='Home'color="#064663"/>
+            <Button onPress={()=> this.props.navigation.navigate('Home')} title='Home'color="#116530"/>
             </View>
 
             <View style={styles.buttonContainer}>
-            <Button onPress={()=> this.props.navigation.navigate('Message')} title='Message'color="#064663"/>
+            <Button onPress={()=> this.props.navigation.navigate('Message')} title='Message'color="#116530"/>
             </View>
 
               <View style={styles.buttonContainer}>
-            <Button onPress={()=> this.props.navigation.navigate('About')} title='About' color="#064663"/>
+            <Button onPress={()=> this.props.navigation.navigate('About', {nama : 'Fauzan Zaman'})} title='About' color="#116530"/>
 
             </View>
         </View>
-
       <View>
       <Text style={{
         fontWeight  : 'bold',
         fontStyle   : 'normal',
         textAlign   : 'center',
-        letterSpacing: 4,
-        fontSize  : 20,
-        color : '#2D4263'}}>
-       TENTANG GENBI 8
+        letterSpacing: 1,
+        fontSize  : 25,
+        color : '#519259'}}>
+        TENTANG IMILKOM
       </Text>
       </View>
 
@@ -70,8 +86,8 @@ class About extends Component {
         letterSpacing: 1,
         fontSize  : 15,
         marginTop : 70,
-        color : '#2D4263'}}>
-       Generasi Baru Indonesia (GenBI) merupakan komunitas yang terdiri dari mahasiswa/i penerima beasiswa Bank Indonesia yang berada di bawah naungan Bank Indonesia. 
+        color : '#519259'}}>
+     IMILKOM Adalah Organisasi Mahasiswa yang Menaungi Mahasiswa S-1 Ilmu Komputer USU
       </Text>
       </View>
     <View>
@@ -81,7 +97,7 @@ class About extends Component {
         textAlign   : 'center',
         letterSpacing: 4,
         fontSize  : 20,
-        color : '#2D4263'}}>
+        color : '#519259'}}>
        {/* {this.props.route.params.nama} */}
       </Text>
       <View>
@@ -90,9 +106,9 @@ class About extends Component {
         fontWeight  : 'bold',
         fontStyle   : 'normal',
         textAlign   : 'center',
-        letterSpacing: 4,
+        letterSpacing: 2,
         fontSize  : 20,
-        color : '#2D4263'}}>
+        color : '#519259'}}>
       {this.props.route.params.nama} 
       </Text>
       </View>

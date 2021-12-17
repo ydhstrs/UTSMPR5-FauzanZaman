@@ -13,8 +13,9 @@ class Message extends Component {
            
       <ScrollView>
       
-      <View style={{
-        backgroundColor : '#30475E'
+      
+       <View style={{
+        backgroundColor : '#1E5128'
       }}>
        <Text
       style={{
@@ -23,7 +24,7 @@ class Message extends Component {
         textAlign   : 'center',
         letterSpacing: 5,
         fontSize : 38,
-        color : '#F05454'
+        color : '#EBE645'
       }}>UTS</Text>
       <Text
       style={{
@@ -32,22 +33,22 @@ class Message extends Component {
         textAlign   : 'center',
         letterSpacing: 5,
         fontSize  : 48,
-        color : '#F5F5F5'
+        color : '#EBE645'
       }}>MPR Lab</Text>
       </View>
 
         <View style={styles.container}>
-        
             <View style={styles.buttonContainer}>
-            <Button onPress={()=> this.props.navigation.navigate('Home')} title='Home'color="#064663"/>
+            <Button onPress={()=> this.props.navigation.navigate('Home')} title='Home'color="#1E5128"/>
             </View>
 
             <View style={styles.buttonContainer}>
-            <Button onPress={()=> this.props.navigation.navigate('Message')} title='Message'color="#064663"/>
+            <Button onPress={()=> this.props.navigation.navigate('Message')} title='Message'color="#1E5128"/>
             </View>
 
               <View style={styles.buttonContainer}>
-            <Button onPress={()=> this.props.navigation.navigate('About', {nama : 'Yudha'})} title='About' color="#064663"/>
+            <Button onPress={()=> this.props.navigation.navigate('About', {nama : 'Fauzan Zaman'})} title='About' color="#1E5128"/>
+
             </View>
         </View>
       <View>
@@ -56,15 +57,24 @@ class Message extends Component {
         fontStyle   : 'normal',
         textAlign   : 'center',
         letterSpacing: 4,
-        fontSize  : 20,
-        color : '#2D4263'}}>
-        PENGALAMAN SELAMA DI GENBI 8
+        fontSize  : 25,
+        color : '#519259'}}>
+        KOTAK ASPIRASI IMILKOM
+      </Text>
+      <Text style={{
+        fontWeight  : 'normal',
+        fontStyle   : 'normal',
+        textAlign   : 'center',
+        letterSpacing: 2,
+        fontSize  : 15,
+        color : '#519259'}}>
+        Tuliskan Aspiasimu Untuk IMILKOM USU
       </Text>
       </View>
 
       <View 
       style={{alignItems:'center'}}>
-        <Image source={require('./IMG_5580.jpg')}
+        <Image source={require('./message.png')}
         style={{resizeMode:'contain', height: 220, marginTop: 50}} />
         </View>
         <View>
@@ -79,8 +89,8 @@ class Message extends Component {
         <Button
 
         onPress={()=> this.setState({description : " "})}
-        title="Hapus Deskripsi"
-        color="#406882"
+        title="Hapus Pesan"
+        color="#1E5128"
         accessibilityLabel="Learn more about this purple button"
 />
         </View>

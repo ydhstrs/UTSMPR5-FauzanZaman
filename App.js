@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/page/Home';
 import About from './src/page/About';
 import Message from './src/page/Message';
+import axios from 'axios';
 
 const Stack = createNativeStackNavigator();
 
